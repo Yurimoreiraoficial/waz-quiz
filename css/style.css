@@ -182,8 +182,8 @@ button { font-family: inherit; cursor: pointer; }
 .time-card img { object-position: top; }
 
 /* stats / autoridade */
-.stats { display: flex; gap: 8px; width: 100%; }
-.stat { flex: 1; background: var(--fundo-card); border-radius: 12px; padding: 12px 10px; text-align: left; }
+.stats { display: flex; gap: 10px; width: 100%; }
+.stat { flex: 1; background: #FFFFFF; border: 1px solid var(--borda); box-shadow: 0 3px 8px -3px rgba(10,10,10,0.06); border-radius: 12px; padding: 12px 10px; text-align: left; }
 .stat b { display: block; font-family: var(--titulo); font-weight: 800; font-size: 20px; color: var(--verde); }
 .stat span { font-size: 10.5px; color: var(--cinza); }
 .midia-rotulo { font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--cinza-claro); }
