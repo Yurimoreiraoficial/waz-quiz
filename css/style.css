@@ -118,7 +118,7 @@ button { font-family: inherit; cursor: pointer; }
 .fechamento { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--preto); }
 .destaque-verde { font-family: var(--titulo); font-weight: 800; font-size: 30px; letter-spacing: -0.5px; color: var(--verde); line-height: 1.15; }
 .pergunta-nome { font-family: var(--titulo); font-weight: 800; font-size: 19px; color: var(--preto); }
-.pergunta-destaque { font-family: var(--titulo); font-weight: 800; font-size: 20px; letter-spacing: -0.3px; line-height: 1.25; color: var(--preto); }
+.pergunta-destaque { font-family: var(--titulo); font-weight: 800; font-size: 23px; letter-spacing: -0.4px; line-height: 1.25; color: var(--preto); }
 
 /* opções */
 .opcao {
@@ -218,7 +218,7 @@ button { font-family: inherit; cursor: pointer; }
   animation: gira 0.9s linear infinite;
 }
 @keyframes gira { to { transform: rotate(360deg); } }
-#analise-itens { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 300px; margin-top: 10px; }
+#analise-itens { display: flex; flex-direction: column; gap: 12px; width: fit-content; max-width: 100%; margin-top: 10px; }
 .analise-item { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; opacity: 0.28; transition: opacity 0.3s ease; text-align: left; }
 .analise-item.rodando { opacity: 0.8; }
 .analise-item.feita { opacity: 1; }

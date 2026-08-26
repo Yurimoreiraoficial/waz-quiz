@@ -385,20 +385,43 @@
   }
   $('#f-whats').addEventListener('input', function () { this.value = mascaraWhats(this.value); });
 
+  /* validação de verdade: DDD real, celular com 9, e-mail com domínio sadio e typos comuns */
+  var DDDS_BR = ('11 12 13 14 15 16 17 18 19 21 22 24 27 28 31 32 33 34 35 37 38 41 42 43 44 45 46 47 48 49 ' +
+    '51 53 54 55 61 62 63 64 65 66 67 68 69 71 73 74 75 77 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99').split(' ');
+  var TYPO_DOMINIO = {
+    'gmial.com': 'gmail.com', 'gmal.com': 'gmail.com', 'gamil.com': 'gmail.com', 'gmai.com': 'gmail.com',
+    'gmail.co': 'gmail.com', 'gmail.con': 'gmail.com', 'gmaill.com': 'gmail.com', 'gmail.com.br': 'gmail.com',
+    'hotmial.com': 'hotmail.com', 'hotmal.com': 'hotmail.com', 'hotmai.com': 'hotmail.com',
+    'hotmail.co': 'hotmail.com', 'hotmail.con': 'hotmail.com',
+    'outlok.com': 'outlook.com', 'outllok.com': 'outlook.com', 'outlook.co': 'outlook.com', 'outlook.con': 'outlook.com',
+    'yaho.com': 'yahoo.com', 'yahho.com': 'yahoo.com', 'yahoo.co': 'yahoo.com',
+    'iclound.com': 'icloud.com', 'icloud.co': 'icloud.com'
+  };
+  function erroEmail(email) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return 'Digite um e-mail válido';
+    var dominio = email.split('@').pop().toLowerCase();
+    if (!/^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/.test(dominio)) return 'Digite um e-mail válido';
+    if (TYPO_DOMINIO[dominio]) return 'Confere o e-mail: você quis dizer @' + TYPO_DOMINIO[dominio] + '?';
+    return '';
+  }
+  function erroWhats(dig) {
+    if (dig.length < 10 || dig.length > 11) return 'Digite o WhatsApp com DDD';
+    if (DDDS_BR.indexOf(dig.slice(0, 2)) === -1) return 'Esse DDD não existe no Brasil';
+    if (dig.length === 11 && dig.charAt(2) !== '9') return 'Celular começa com 9 depois do DDD';
+    if (/^(\d)\1+$/.test(dig.slice(2))) return 'Esse número não parece real';
+    return '';
+  }
   function confirmarDados() {
     var ok = true;
     var nome = $('#f-nome').value.trim();
     var email = $('#f-email').value.trim();
     var dig = $('#f-whats').value.replace(/\D/g, '');
-    function marca(id, invalido) {
-      $('#f-' + id).parentElement.classList.toggle('invalido', invalido);
-      if (id === 'whats') $('#f-whats').closest('.campo').classList.toggle('invalido', invalido);
-      if (invalido) ok = false;
-    }
     $$('.campo').forEach(function (c) { c.classList.remove('invalido'); });
     if (nome.length < 2) { $('#f-nome').closest('.campo').classList.add('invalido'); ok = false; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { $('#f-email').closest('.campo').classList.add('invalido'); ok = false; }
-    if (dig.length < 10 || dig.length > 11) { $('#f-whats').closest('.campo').classList.add('invalido'); ok = false; }
+    var eEmail = erroEmail(email);
+    if (eEmail) { $('#erro-email').textContent = eEmail; $('#f-email').closest('.campo').classList.add('invalido'); ok = false; }
+    var eWhats = erroWhats(dig);
+    if (eWhats) { $('#erro-whats').textContent = eWhats; $('#f-whats').closest('.campo').classList.add('invalido'); ok = false; }
     if (!ok) return;
     respostas.contato_nome = nome;
     respostas.contato_email = email;
