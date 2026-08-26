@@ -233,7 +233,7 @@
         timers.push(setTimeout(function () { alvo.classList.add('rev-entra'); }, quando * 1000));
       })(el, t);
     });
-    return t + leitura(alvos[alvos.length - 1]);
+    return t + 0.8; // último bloco visível + fade
   }
 
   /* ---------- navegação ---------- */
@@ -278,9 +278,6 @@
     if (!semBotao) {
       tela.classList.add('com-rodape');
       rodBotao.hidden = false;
-      var rotulo = ROTULO_BOTAO[nome] || 'Continuar →';
-      var comAtraso = tela.classList.contains('revelacao') && direcao > 0;
-      armarTrava(comAtraso ? ATRASO_BOTAO : 0, rotulo);
     }
     if (nome === 'nome') {
       tela.classList.add('com-rodape');
@@ -297,7 +294,12 @@
       if (!$('#f-email').value && respostas.contato_email) $('#f-email').value = respostas.contato_email;
     }
 
-    montarRevelacao(tela);
+    var totalRev = montarRevelacao(tela);
+    if (!semBotao) {
+      var rotulo = ROTULO_BOTAO[nome] || 'Continuar →';
+      var comAtraso = tela.classList.contains('revelacao') && direcao > 0;
+      armarTrava(comAtraso ? Math.max(1, Math.ceil(totalRev || ATRASO_BOTAO)) : 0, rotulo);
+    }
 
     if (nome === 'analise') rodarAnalise();
     if (nome === 'resultado') montarResultado();
