@@ -139,9 +139,11 @@ button { font-family: inherit; cursor: pointer; }
 .card-bullet {
   width: 100%;
   display: flex; align-items: flex-start; gap: 8px;
-  background: var(--fundo-card);
+  background: #FFFFFF;
+  border: 1px solid var(--borda);
   border-radius: 12px;
-  padding: 12px 14px;
+  box-shadow: 0 3px 8px -3px rgba(10,10,10,0.06);
+  padding: 13px 14px;
   text-align: left;
 }
 .card-bullet p { font-size: 15px; font-weight: 500; line-height: 1.45; color: var(--preto); flex: 1; }
