@@ -79,9 +79,12 @@ button { font-family: inherit; cursor: pointer; }
   background: #FFFFFF;
 }
 .tela.ativa { display: flex; }
+/* padrão: conteúdo alinhado à esquerda (exceto tela inicial) */
+.tela { text-align: left; align-items: flex-start; }
+.tela[data-tela="hero"] { text-align: center; align-items: center; }
 /* perguntas padronizadas: título ancorado, opções sempre no mesmo ponto */
 .tela.pergunta { justify-content: flex-start; padding-top: clamp(40px, 10dvh, 96px); gap: 12px; }
-.tela.pergunta h2 { min-height: 66px; display: grid; place-items: end center; width: 100%; }
+.tela.pergunta h2 { min-height: 66px; display: grid; place-items: end start; width: 100%; }
 .tela.pergunta .sub-pergunta { margin-top: -4px; margin-bottom: 2px; }
 .tela[data-tela="prova"], .tela[data-tela="investimento"] { justify-content: center; padding-top: 20px; }
 .tela[data-tela="prova"] h2, .tela[data-tela="investimento"] h2 { min-height: 0; display: block; }
@@ -161,11 +164,11 @@ button { font-family: inherit; cursor: pointer; }
 
 /* stats / autoridade */
 .stats { display: flex; gap: 8px; width: 100%; }
-.stat { flex: 1; background: var(--fundo-card); border-radius: 12px; padding: 12px 6px; }
+.stat { flex: 1; background: var(--fundo-card); border-radius: 12px; padding: 12px 10px; text-align: left; }
 .stat b { display: block; font-family: var(--titulo); font-weight: 800; font-size: 20px; color: var(--verde); }
 .stat span { font-size: 10.5px; color: var(--cinza); }
 .midia-rotulo { font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--cinza-claro); }
-.midia { display: flex; align-items: center; justify-content: center; gap: 18px; opacity: 0.75; }
+.midia { display: flex; align-items: center; justify-content: flex-start; gap: 18px; opacity: 0.75; }
 .midia img { height: 16px; width: auto; }
 
 /* plano */
