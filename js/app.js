@@ -344,6 +344,21 @@
     $('#resultado-nota').textContent = NOTA_URGENCIA[respostas.urgencia] || 'Veja como funciona e agende uma conversa com nosso time.';
     pixel('trackCustom', 'QuizResultado', {});
     evento('resultado', {});
+    // confetes
+    var telaRes = telas.resultado;
+    $$('.confete', telaRes).forEach(function (el) { el.remove(); });
+    var cores = ['#16A34A', '#4ADE80', '#DCFCE7', '#0A0A0A'];
+    for (var ci = 0; ci < 26; ci++) {
+      var cf = document.createElement('span');
+      cf.className = 'confete';
+      cf.style.left = (4 + Math.random() * 92) + '%';
+      cf.style.background = cores[ci % cores.length];
+      cf.style.setProperty('--dur', (1.6 + Math.random() * 1.2).toFixed(2) + 's');
+      cf.style.setProperty('--delay', (Math.random() * 0.7).toFixed(2) + 's');
+      cf.style.transform = 'rotate(' + Math.round(Math.random() * 90) + 'deg)';
+      telaRes.appendChild(cf);
+    }
+    timers.push(setTimeout(function () { $$('.confete', telaRes).forEach(function (el) { el.remove(); }); }, 4000));
   }
 
   /* ---------- formulário ---------- */
