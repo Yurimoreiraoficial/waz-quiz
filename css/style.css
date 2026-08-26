@@ -260,6 +260,8 @@ button { font-family: inherit; cursor: pointer; }
   width: 100%; background: var(--verde-fundo); border: 1px solid var(--verde-claro);
   border-radius: 12px; padding: 12px 14px; color: #14532D; font-weight: 600;
 }
+.resultado-topo { display: flex; align-items: center; gap: 14px; width: 100%; }
+.resultado-topo .check-grande { flex-shrink: 0; width: 54px; height: 54px; }
 .tela[data-tela="resultado"].ativa .check-grande { animation: pop 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) backwards; }
 .tela[data-tela="resultado"].ativa .check-grande::after {
   content: ""; position: absolute; inset: 0; border-radius: 100px;
@@ -270,9 +272,9 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes entra { from { opacity: 0; transform: translateY(14px); } }
 .tela[data-tela="resultado"].ativa h2 { animation: entra 0.5s 0.15s backwards; }
 .tela[data-tela="resultado"].ativa > .corpo:first-of-type { animation: entra 0.5s 0.3s backwards; }
-.tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(1) { animation: entra 0.5s 0.5s backwards; }
-.tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(2) { animation: entra 0.5s 0.75s backwards; }
-.tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(3) { animation: entra 0.5s 1.0s backwards; }
+.tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(2) { animation: entra 0.5s 0.5s backwards; }
+.tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(3) { animation: entra 0.5s 0.75s backwards; }
+.tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(4) { animation: entra 0.5s 1.0s backwards; }
 .tela[data-tela="resultado"].ativa #resultado-nota { animation: entra 0.5s 1.25s backwards; }
 
 
