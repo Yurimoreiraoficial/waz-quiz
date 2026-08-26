@@ -88,6 +88,7 @@ button { font-family: inherit; cursor: pointer; }
 .pill { background: var(--verde-claro); color: #14532D; font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 100px; }
 .mascote { width: 180px; height: 180px; border-radius: 24px; object-fit: cover; }
 .sub, .corpo { font-size: 13px; line-height: 1.55; color: var(--cinza); }
+.sub-hero { font-size: 15px; line-height: 1.5; }
 .sub-pergunta { font-size: 12.5px; line-height: 1.5; color: var(--cinza); margin-top: -4px; }
 .fechamento { font-size: 13px; font-weight: 600; line-height: 1.55; color: var(--preto); }
 .destaque-verde { font-family: var(--titulo); font-weight: 800; font-size: 30px; letter-spacing: -0.5px; color: var(--verde); line-height: 1.15; }
