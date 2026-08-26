@@ -330,17 +330,21 @@
     tela.classList.add('apertada');
     if (tela.scrollHeight <= disp + 1) { tela.style.justifyContent = ''; return; }
     // solta a altura (o clip fica do tamanho do conteúdo) e escala para caber;
-    // alargar muda a quebra de linhas, então re-mede até convergir
+    // alargar muda a quebra de linhas, então re-mede até convergir no MAIOR fator que cabe
     tela.style.bottom = 'auto';
     tela.style.height = 'auto';
     tela.style.transformOrigin = '0 0';
     var fator = 1;
-    for (var i = 0; i < 4; i++) {
-      fator = Math.max(0.7, disp / tela.scrollHeight);
+    for (var i = 0; i < 5; i++) {
+      var alvo = Math.max(0.7, Math.min(1, disp / tela.scrollHeight));
+      if (Math.abs(alvo - fator) < 0.01 && i > 0) break;
+      fator = alvo;
       tela.style.width = (100 / fator) + '%';
       tela.style.transform = 'scale(' + fator + ')';
-      if (tela.scrollHeight * fator <= disp + 1) break;
     }
+    // distribui a folga: centraliza verticalmente o conteúdo escalado
+    var sobra = disp - tela.scrollHeight * fator;
+    if (sobra > 4) tela.style.transform = 'translateY(' + Math.round(sobra / 2) + 'px) scale(' + fator + ')';
   }
 
   /* ---------- análise ---------- */
