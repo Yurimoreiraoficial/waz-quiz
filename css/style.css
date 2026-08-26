@@ -123,7 +123,7 @@ button { font-family: inherit; cursor: pointer; }
 .fechamento { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--preto); }
 .destaque-verde { font-family: var(--titulo); font-weight: 800; font-size: 30px; letter-spacing: -0.5px; color: var(--verde); line-height: 1.15; }
 .pergunta-nome { font-family: var(--titulo); font-weight: 800; font-size: 19px; color: var(--preto); }
-.pergunta-destaque { font-family: var(--titulo); font-weight: 800; font-size: 19px; letter-spacing: -0.4px; line-height: 1.25; color: var(--preto); white-space: nowrap; }
+.pergunta-destaque { font-family: var(--titulo); font-weight: 800; font-size: 22px; letter-spacing: -0.4px; line-height: 1.25; color: var(--preto); white-space: nowrap; }
 
 /* opções */
 .opcao {
@@ -220,16 +220,17 @@ button { font-family: inherit; cursor: pointer; }
 /* análise */
 .tela.centro { justify-content: center; }
 .spinner {
-  width: 46px; height: 46px; border-radius: 100px;
-  border: 3.5px solid #E3E8E6; border-top-color: var(--verde);
+  width: 64px; height: 64px; border-radius: 100px;
+  border: 4.5px solid #E3E8E6; border-top-color: var(--verde);
   animation: gira 0.9s linear infinite;
+  margin-bottom: 8px;
 }
 @keyframes gira { to { transform: rotate(360deg); } }
-#analise-itens { display: flex; flex-direction: column; gap: 12px; width: fit-content; max-width: 100%; margin-top: 10px; }
-.analise-item { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; opacity: 0.28; transition: opacity 0.3s ease; text-align: left; }
+#analise-itens { display: flex; flex-direction: column; gap: 18px; width: fit-content; max-width: 100%; margin-top: 22px; }
+.analise-item { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 600; opacity: 0.28; transition: opacity 0.3s ease; text-align: left; }
 .analise-item.rodando { opacity: 0.8; }
 .analise-item.feita { opacity: 1; }
-.analise-dot { width: 15px; height: 15px; border-radius: 100px; border: 2.5px solid #E3E8E6; flex-shrink: 0; }
+.analise-dot { width: 20px; height: 20px; border-radius: 100px; border: 3px solid #E3E8E6; flex-shrink: 0; }
 .analise-item.rodando .analise-dot { border-top-color: var(--verde); animation: gira 0.8s linear infinite; }
 .analise-item.feita .analise-dot {
   border: none;
