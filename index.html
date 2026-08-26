@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Waz — Seu melhor vendedor de IA</title>
+<meta name="description" content="Descubra em menos de 1 minuto se o Waz é a escolha certa para o seu negócio." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fustat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '357259037316204');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=357259037316204&ev=PageView&noscript=1" /></noscript>
+</head>
+<body>
+
+<header id="topo">
+  <div class="topo-logo"><img src="img/logo.svg" alt="squad.com" width="144" height="26" /></div>
+  <div class="topo-nav">
+    <button id="btn-voltar" aria-label="Voltar">
+      <svg width="16" height="14" viewBox="0 0 18 16"><path d="M8 2 L2 8 L8 14 M2.5 8 H16" stroke="#5C6664" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div id="progresso"></div>
+    <span class="topo-espaco"></span>
+  </div>
+</header>
+
+<main id="funil">
+
+  <section class="tela" data-tela="hero">
+    <div class="pill">Conheça o Waz</div>
+    <img class="mascote" src="img/mascote.png" alt="Waz" />
+    <h1>Seu melhor <em>vendedor de IA</em> disponível 24 horas por dia.</h1>
+    <p class="sub">Descubra em menos de 1 minuto se o Waz é a escolha certa para o seu negócio.</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="prova">
+    <h2 class="menor">É esse tipo de resultado que você está buscando para o seu negócio?</h2>
+    <div class="print-card"><img src="img/print-magalu.png" alt="Matéria: WhatsApp da Lu ultrapassa a marca de 100 milhões de reais em vendas" /></div>
+    <div class="destaque-verde">R$ 100 milhões!</div>
+    <p class="corpo">Utilizando WhatsApp com IA. Sem precisar escalar o time de vendas e com 3x mais conversão do que os outros canais.</p>
+    <button class="opcao primaria" data-valor="sim">Sim, é exatamente isso</button>
+    <button class="opcao secundaria" data-valor="entender">Quero entender como funciona</button>
+  </section>
+
+  <section class="tela" data-tela="nome">
+    <h2>Bora começar!</h2>
+    <p class="pergunta-nome">Qual seu nome? 👇</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="setor">
+    <h2>{{nome}}, qual é o setor<br/>da sua empresa?</h2>
+    <button class="opcao" data-valor="saude">🏥 Clínicas e saúde</button>
+    <button class="opcao" data-valor="imobiliario">🏠 Imobiliário</button>
+    <button class="opcao" data-valor="ecommerce">🛍️ E-commerce e varejo</button>
+    <button class="opcao" data-valor="b2b">💼 Serviços B2B</button>
+    <button class="opcao" data-valor="delivery">🍔 Delivery e food</button>
+    <button class="opcao outro" data-valor="outro">✍️ Outro setor? Digite aqui</button>
+  </section>
+
+  <section class="tela revelacao" data-tela="imagine">
+    <h2>Imagine isso, {{nome}}:</h2>
+    <div class="card-bullet"><span class="check"></span><p>Acordar todos os dias em paz, sabendo que nenhum lead seu ficou sem resposta.</p></div>
+    <div class="card-bullet"><span class="check"></span><p>Ter um agente de IA qualificando um por um, separando os curiosos de quem realmente compra.</p></div>
+    <div class="card-bullet"><span class="check"></span><p>Nunca mais ter que passar meses treinando alguém que um dia vai te deixar na mão.</p></div>
+    <p class="fechamento">É isso que o Waz faz por você!<br/>Ele cuida do seu WhatsApp de ponta a ponta.</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="volume">
+    <h2>Quantos leads (contatos) chegam por dia no seu WhatsApp?</h2>
+    <button class="opcao" data-valor="v10">Menos de 10</button>
+    <button class="opcao" data-valor="v20">10 a 20</button>
+    <button class="opcao" data-valor="v50">20 a 50</button>
+    <button class="opcao" data-valor="v50plus">Mais de 50</button>
+  </section>
+
+  <section class="tela pergunta" data-tela="atendimento">
+    <h2>E quem atende<br/>esses leads hoje?</h2>
+    <button class="opcao" data-valor="eu">Eu mesmo</button>
+    <button class="opcao" data-valor="vendedor">Um vendedor</button>
+    <button class="opcao" data-valor="equipe">Uma equipe</button>
+  </section>
+
+  <section class="tela pergunta" data-tela="dor">
+    <h2>O que mais te faz<br/>perder venda hoje?</h2>
+    <button class="opcao" data-valor="demora">⏱️ Demora para responder</button>
+    <button class="opcao" data-valor="esfriam">🥶 Leads esfriam sem follow-up</button>
+    <button class="opcao" data-valor="equipe">😵 Equipe não dá conta do volume</button>
+    <button class="opcao" data-valor="horario">🌙 Mensagens fora do horário</button>
+  </section>
+
+  <section class="tela revelacao" data-tela="d-demora" data-dor="demora">
+    <h2>Olha que interessante:</h2>
+    <div class="destaque-verde">21x mais conversão</div>
+    <p class="corpo">Um estudo comprovou que empresas que respondem em menos de 5 minutos têm 21 vezes mais chances de conseguir um cliente.</p>
+    <p class="fechamento">E sabe o que é mais interessante?</p>
+    <p class="fechamento">O Waz não responde em minutos.<br/>Ele responde em segundos.</p>
+  </section>
+
+  <section class="tela revelacao" data-tela="d-esfriam" data-dor="esfriam">
+    <h2>{{nome}}, realmente:</h2>
+    <p class="corpo">Não ter um follow-up deixa muito dinheiro na mesa. Já tivemos caso de lead que ignorou 9 mensagens, respondeu na décima. E fechou.</p>
+    <p class="fechamento">R$ 40 mil a mais no caixa da empresa porque o Waz fez vários follow-ups até encontrar o ponto certo.</p>
+  </section>
+
+  <section class="tela revelacao" data-tela="d-equipe" data-dor="equipe">
+    <h2>Isso é bem complicado.</h2>
+    <p class="corpo">Uma pessoa trabalha 8h por dia, precisa de semanas de treinamento, tira férias, pega atestado e tem oscilação no atendimento: dia bom, dia ruim.</p>
+    <p class="fechamento">O Waz trabalha 24h por dia, de domingo a domingo, sem perder a paciência e sem fazer corpo mole. É uma máquina treinada para atender e vender por você.</p>
+  </section>
+
+  <section class="tela revelacao" data-tela="d-horario" data-dor="horario">
+    <h2>Isso acontece mais<br/>do que parece.</h2>
+    <p class="corpo">Boa parte das compras acontece à noite e no fim de semana, exatamente quando ninguém responde. O lead que espera até o dia seguinte esfria ou compra do concorrente.</p>
+    <p class="fechamento">O Waz não tem horário: responde em segundos às 23h de sábado, como se fosse 10h de terça. Nenhuma mensagem fica para depois.</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="origem">
+    <h2>De onde vem a maior parte<br/>dos seus leads hoje?</h2>
+    <button class="opcao" data-valor="pago">📣 Tráfego pago (Google e/ou Instagram)</button>
+    <button class="opcao" data-valor="insta">📱 Instagram orgânico</button>
+    <button class="opcao" data-valor="google">🔎 Google orgânico</button>
+    <button class="opcao" data-valor="indicacao">🤝 Indicação de amigos e clientes</button>
+    <button class="opcao" data-valor="parceiros">🌐 Rede de parceiros e influenciadores</button>
+  </section>
+
+  <section class="tela revelacao" data-tela="trafego">
+    <h2>Legal, {{nome}}!<br/>Gerar tráfego é importante.</h2>
+    <p class="corpo">Mas infelizmente sem um atendimento eficaz, colocar dinheiro ou energia em tráfego é em vão.</p>
+    <p class="corpo">É como fazer uma propaganda com um carro de som para a sua loja e, quando o cliente chega, não tem ninguém para atendê-lo.</p>
+    <p class="fechamento">É aí que o Waz entra em jogo.<br/>Ele garante que todo mundo será atendido.</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="numeros">
+    <h2>Hoje você tem clareza<br/>dos seus números?</h2>
+    <p class="sub-pergunta">Quantidade de conversas por dia, taxa de conversão, custo por lead, CAC…</p>
+    <button class="opcao" data-valor="detalhes">📊 Sim, sei em detalhes</button>
+    <button class="opcao" data-valor="nocao">🤏 Tenho uma noção por alto</button>
+    <button class="opcao" data-valor="semnumeros">🤷 Não faço ideia</button>
+  </section>
+
+  <section class="tela" data-tela="crm">
+    <h2>{{nome}}, quanto mais clareza,<br/>maior a previsibilidade</h2>
+    <p class="corpo">O Waz organiza tudo em um CRM guiado por IA:</p>
+    <div class="crm-card"><img src="img/crm.png" alt="CRM do Waz" /></div>
+    <p class="fechamento">Tá fazendo sentido pra você até aqui?</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="urgencia">
+    <h2>Última pergunta! Qual o seu nível de urgência para resolver esse problema hoje?</h2>
+    <button class="opcao" data-valor="urgente">🔥 Urgente: o mais rápido possível</button>
+    <button class="opcao" data-valor="media">📅 Média: nos próximos 30 dias</button>
+    <button class="opcao" data-valor="baixa">👀 Baixa: ainda estou pesquisando</button>
+  </section>
+
+  <section class="tela centro" data-tela="analise">
+    <div class="spinner"></div>
+    <h2>Estamos analisando suas respostas…</h2>
+    <div id="analise-itens">
+      <div class="analise-item" data-i="0"><span class="analise-dot"></span>Segmento…</div>
+      <div class="analise-item" data-i="1"><span class="analise-dot"></span>Volume de leads por dia…</div>
+      <div class="analise-item" data-i="2"><span class="analise-dot"></span>Origem do tráfego…</div>
+      <div class="analise-item" data-i="3"><span class="analise-dot"></span>Nível de urgência…</div>
+      <div class="analise-item" data-i="4"><span class="analise-dot"></span>Fit com o Waz…</div>
+    </div>
+  </section>
+
+  <section class="tela" data-tela="dados">
+    <h2>Sua análise está pronta!</h2>
+    <p class="corpo">Preencha seus dados para liberar o acesso à condição especial do mês de <span id="mes-atual"></span>.</p>
+    <div class="campo">
+      <label for="f-nome">NOME</label>
+      <input id="f-nome" type="text" placeholder="Digite seu nome" autocomplete="name" />
+      <div class="erro" id="erro-nome">Digite seu nome</div>
+    </div>
+    <div class="campo">
+      <label for="f-email">E-MAIL</label>
+      <input id="f-email" type="email" placeholder="voce@empresa.com.br" autocomplete="email" inputmode="email" />
+      <div class="erro" id="erro-email">Digite um e-mail válido</div>
+    </div>
+    <div class="campo">
+      <label for="f-whats">WHATSAPP (COM DDD)</label>
+      <div class="campo-tel"><span>+55</span><input id="f-whats" type="tel" placeholder="(11) 99999-9999" autocomplete="tel-national" inputmode="tel" /></div>
+      <div class="erro" id="erro-whats">Digite o WhatsApp com DDD</div>
+    </div>
+  </section>
+
+  <section class="tela" data-tela="resultado">
+    <div class="check-grande"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#DCFCE7"/><path d="M6 10.2 L8.8 13 L14 7.6" stroke="#16A34A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2 id="resultado-titulo">Boa notícia. Seu perfil foi aprovado!</h2>
+    <div class="card-bullet"><span class="check"></span><p id="resultado-1"></p></div>
+    <div class="card-bullet"><span class="check"></span><p id="resultado-2"></p></div>
+    <div class="card-bullet"><span class="check"></span><p id="resultado-3"></p></div>
+    <p class="corpo" id="resultado-nota"></p>
+  </section>
+
+  <section class="tela revelacao" data-tela="setedias">
+    <h2>{{nome}}, você não precisa entender nada de IA.</h2>
+    <div class="card-bullet"><span class="check"></span><p>A gente configura tudo para você</p></div>
+    <div class="card-bullet"><span class="check"></span><p>Entrega pronto e funcionando em até 7 dias</p></div>
+    <div class="card-bullet"><span class="check"></span><p>Sem precisar contratar ou treinar ninguém</p></div>
+    <p class="fechamento">Enquanto outras empresas te vendem uma ferramenta, a gente entrega tudo pronto e funcionando.</p>
+  </section>
+
+  <section class="tela" data-tela="autoridade">
+    <h2>Quem está por trás do Waz?</h2>
+    <div class="time-card"><img src="img/time.png" alt="Time da Squad" /></div>
+    <p class="corpo">O Waz foi desenvolvido pela Squad.com, do grupo Inner AI, mais de 3 anos de mercado atendendo algumas das maiores empresas do Brasil, como Vivo, Embraer e Mercado Livre entre outras.</p>
+    <div class="stats">
+      <div class="stat"><b>+1M</b><span>usuários atendidos</span></div>
+      <div class="stat"><b>R$ 50M</b><span>em investimento</span></div>
+      <div class="stat"><b>#1</b><span>em IA no Brasil</span></div>
+    </div>
+    <div class="midia-rotulo">NA MÍDIA</div>
+    <div class="midia">
+      <img src="img/midia-exame.svg" alt="Exame" />
+      <img src="img/midia-pipeline.svg" alt="Pipeline" />
+      <img src="img/midia-startupi.svg" alt="Startupi" />
+      <img src="img/midia-cnn.svg" alt="CNN" />
+    </div>
+  </section>
+
+  <section class="tela" data-tela="garantia">
+    <img class="selo" src="img/selo-garantia.jpeg" alt="Garantia de 30 dias" />
+    <h2><em>30 dias</em> de garantia</h2>
+    <p class="corpo">Você tem não 7, mas 30 dias de garantia. Se em 30 dias você não tiver nenhum resultado mensurável com o Waz no seu negócio, devolvemos 100% do seu dinheiro.</p>
+  </section>
+
+  <section class="tela pergunta" data-tela="investimento">
+    <h2>Menos que um SDR para ter<br/>um vendedor 24h por dia.</h2>
+    <div class="plano-card">
+      <div class="plano-selo">Waz Essential</div>
+      <div class="plano-preco">R$ 2.000<span>/mês</span></div>
+      <div class="plano-nota">Esse é o investimento para ter:</div>
+      <div class="plano-item"><span class="check"></span>O Waz completo, com todas funcionalidades</div>
+      <div class="plano-item"><span class="check"></span>Entregue pronto e funcionando em até 7 dias</div>
+      <div class="plano-item"><span class="check"></span>Garantia total de satisfação de 30 dias</div>
+    </div>
+    <h3>Esse investimento faz<br/>sentido para o seu negócio?</h3>
+    <button class="opcao btn-sim" data-valor="sim">Sim, com certeza</button>
+    <button class="opcao btn-nao" data-valor="nao">Não é o momento</button>
+  </section>
+
+  <section class="tela centro" data-tela="obrigado">
+    <h2>Obrigado, {{nome}}!</h2>
+    <p class="corpo">A gente entende que talvez não seja o momento. Sua análise fica salva por aqui e, quando fizer sentido, é só voltar.</p>
+    <p class="fechamento">Vamos torcer pelo seu negócio. 💚</p>
+  </section>
+
+  <section class="tela agendar-tela" data-tela="agendar">
+    <button id="agendar-voltar">← Voltar</button>
+    <h2 id="agendar-titulo">Boa, {{nome}}!<br/>O próximo passo é agendar uma reunião com o nosso time.</h2>
+    <p class="corpo">A gente te mostra como o Waz ficaria na sua empresa e tira todas as suas dúvidas. Um bate-papo rápido, sem compromisso.</p>
+    <div id="cal-container"></div>
+  </section>
+
+  <section class="tela centro" data-tela="pos">
+    <div class="check-grande"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#DCFCE7"/><path d="M6 10.2 L8.8 13 L14 7.6" stroke="#16A34A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>Obrigado, {{nome}}! Reunião agendada.</h2>
+    <div class="agendado-badge" id="agendado-quando" hidden>📅 <span></span></div>
+    <p class="corpo">Você vai receber a confirmação por e-mail. Enquanto isso, aproveite para seguir a gente no Instagram 👇</p>
+    <iframe id="insta-embed" src="about:blank" data-src="https://www.instagram.com/squadcom_br/embed" loading="lazy" title="Instagram da Squad"></iframe>
+    <a class="btn-insta" href="https://www.instagram.com/squadcom_br/" target="_blank" rel="noreferrer">Seguir no Instagram</a>
+  </section>
+
+</main>
+
+<footer id="rodape">
+  <div id="rodape-botao" hidden>
+    <div class="glow-wrap"><div class="glow"></div><button id="btn-continuar">Continuar →</button></div>
+  </div>
+  <div id="rodape-input" hidden>
+    <div class="linha-input">
+      <input id="input-texto" type="text" placeholder="Digite seu nome aqui" autocomplete="given-name" />
+      <button id="btn-enviar" aria-label="Enviar">→</button>
+    </div>
+    <div class="erro" id="erro-input">Me diz seu nome para a gente continuar :)</div>
+  </div>
+  <div id="rodape-dados" hidden>
+    <div class="glow-wrap"><div class="glow"></div><button id="btn-liberar">Liberar minha análise</button></div>
+    <div class="nota-seguranca">Seus dados estão seguros e não enviamos spam.</div>
+  </div>
+</footer>
+
+<script src="js/app.js" data-endpoint="https://yiccjupbhruomiymzyiw.supabase.co/functions/v1/quiz-api"></script>
+</body>
+</html>

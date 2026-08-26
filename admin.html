@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Waz Quiz — Painel</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fustat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root { --preto:#0A0A0A; --cinza:#798282; --verde:#16A34A; --verde-claro:#DCFCE7; --borda:#E3E8E6; --fundo:#F7F9F8; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',-apple-system,sans-serif; background:#F2F4F4; color:var(--preto); padding:24px; }
+h1,h2,h3 { font-family:'Fustat',sans-serif; letter-spacing:-0.5px; }
+.container { max-width:1100px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
+.topo { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.topo h1 { font-size:24px; }
+.card { background:#FFF; border:1px solid var(--borda); border-radius:14px; padding:18px; }
+#login { max-width:400px; margin:80px auto; text-align:center; display:flex; flex-direction:column; gap:12px; }
+#login input { font-family:inherit; font-size:15px; padding:12px 14px; border-radius:12px; border:1.5px solid #DFE6E3; outline:none; }
+button.acao { font-family:inherit; font-weight:700; font-size:14px; color:#FFF; background:var(--preto); border:none; border-radius:12px; padding:12px 18px; cursor:pointer; }
+button.acao.sec { background:#FFF; color:var(--preto); border:1px solid var(--borda); }
+.filtros { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.filtros select { font-family:inherit; font-size:13px; padding:8px 10px; border-radius:10px; border:1px solid var(--borda); background:#FFF; }
+.filtros .chip { font-size:13px; font-weight:600; padding:8px 14px; border-radius:100px; border:1px solid var(--borda); background:#FFF; cursor:pointer; }
+.filtros .chip.ativo { background:var(--preto); color:#FFF; border-color:var(--preto); }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+.kpi { background:#FFF; border:1px solid var(--borda); border-radius:14px; padding:14px 16px; }
+.kpi b { display:block; font-family:'Fustat'; font-size:26px; font-weight:800; }
+.kpi span { font-size:12px; color:var(--cinza); }
+.kpi small { display:block; font-size:11px; color:var(--verde); font-weight:700; margin-top:2px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:800px){ .grid2 { grid-template-columns:1fr; } }
+.funil-linha { display:flex; align-items:center; gap:10px; margin:7px 0; font-size:12.5px; }
+.funil-nome { width:130px; text-align:right; color:var(--cinza); flex-shrink:0; }
+.funil-barra { flex:1; background:var(--fundo); border-radius:6px; height:22px; overflow:hidden; position:relative; }
+.funil-barra i { display:block; height:100%; background:var(--verde); border-radius:6px; }
+.funil-num { width:110px; font-weight:600; flex-shrink:0; }
+.funil-num em { font-style:normal; color:#DC2626; font-weight:500; font-size:11px; }
+table { width:100%; border-collapse:collapse; font-size:12.5px; }
+th { text-align:left; font-size:11px; letter-spacing:0.4px; color:var(--cinza); padding:8px; border-bottom:1px solid var(--borda); white-space:nowrap; }
+td { padding:8px; border-bottom:1px solid #F0F3F1; vertical-align:top; }
+.tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 8px; border-radius:100px; background:var(--fundo); }
+.tag.ok { background:var(--verde-claro); color:#14532D; }
+.dist { margin:6px 0; }
+.dist .rotulo { font-size:12px; display:flex; justify-content:space-between; margin-bottom:2px; }
+.dist .barra { background:var(--fundo); border-radius:5px; height:10px; overflow:hidden; }
+.dist .barra i { display:block; height:100%; background:var(--verde); }
+.scroll-x { overflow-x:auto; }
+#status { font-size:13px; color:var(--cinza); }
+canvas { max-height:260px; }
+h3 { font-size:15px; margin-bottom:10px; }
+</style>
+</head>
+<body>
+
+<div id="login" class="card">
+  <h1>Painel do Waz Quiz</h1>
+  <p style="font-size:13px;color:var(--cinza)">Entre com o seu e-mail de administrador. Você vai receber um link mágico.</p>
+  <input id="login-email" type="email" placeholder="seu@email.com" />
+  <button class="acao" id="btn-login">Enviar link de acesso</button>
+  <div id="login-msg" style="font-size:13px;color:var(--verde)"></div>
+</div>
+
+<div class="container" id="painel" hidden>
+  <div class="topo">
+    <h1>Funil Waz Quiz</h1>
+    <div class="filtros">
+      <button class="chip" data-dias="1">Hoje</button>
+      <button class="chip ativo" data-dias="7">7 dias</button>
+      <button class="chip" data-dias="30">30 dias</button>
+      <button class="chip" data-dias="0">Tudo</button>
+      <select id="filtro-campanha"><option value="">Todas as campanhas</option></select>
+      <button class="acao sec" id="btn-atualizar">Atualizar</button>
+      <button class="acao sec" id="btn-csv">Exportar CSV</button>
+      <button class="acao sec" id="btn-sair">Sair</button>
+    </div>
+  </div>
+  <div id="status">Carregando…</div>
+
+  <div class="cards" id="kpis"></div>
+
+  <div class="card">
+    <h3>Funil tela a tela — onde os leads param</h3>
+    <div id="funil"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>Evolução diária</h3><canvas id="grafico-dias"></canvas></div>
+    <div class="card"><h3>Tempo médio por tela (s)</h3><div id="tempos"></div></div>
+  </div>
+
+  <div class="card">
+    <h3>Distribuição das respostas</h3>
+    <div class="grid2" id="respostas"></div>
+  </div>
+
+  <div class="card">
+    <h3>Leads</h3>
+    <div class="scroll-x"><table id="tabela-leads">
+      <thead><tr>
+        <th>Data</th><th>Nome</th><th>WhatsApp</th><th>E-mail</th><th>Setor</th><th>Volume</th><th>Dor</th><th>Urgência</th><th>Investimento</th><th>Agendou</th><th>Campanha</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="js/admin.js"
+  data-supabase-url="https://yiccjupbhruomiymzyiw.supabase.co"
+  data-supabase-anon="sb_publishable_HIEB1zkCuKCM0cBIkjVDBw__gZt1yHv"></script>
+</body>
+</html>
