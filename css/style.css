@@ -152,6 +152,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .btn-nao { text-align: center; color: var(--cinza); border-color: #DFE6E3; border-radius: 14px; box-shadow: none; }
 
+.divisor { width: 100%; border: none; border-top: 1px solid var(--borda); margin: 6px 0; }
+
 /* cards bullet */
 .card-bullet {
   width: 100%;
