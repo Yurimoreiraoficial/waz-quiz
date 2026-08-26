@@ -104,6 +104,7 @@ button { font-family: inherit; cursor: pointer; }
 .tela.pergunta .sub-pergunta { margin-top: -4px; margin-bottom: 2px; }
 .tela[data-tela="prova"], .tela[data-tela="investimento"] { justify-content: center; padding-top: 20px; }
 .tela[data-tela="prova"] h2, .tela[data-tela="investimento"] h2 { min-height: 0; display: block; }
+.tela[data-tela="prova"] h2.menor { margin-bottom: 8px; }
 .tela.com-rodape { bottom: var(--rodape-h); }
 .tela.compacta { gap: 8px; }
 /* encaixe automático: 1º aperta espaços, depois o JS escala se ainda estourar */
