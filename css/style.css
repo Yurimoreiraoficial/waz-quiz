@@ -87,6 +87,7 @@ button { font-family: inherit; cursor: pointer; }
 .tela[data-tela="autoridade"] .midia { justify-content: center; }
 .tela[data-tela="autoridade"] .stat { text-align: center; }
 .tela[data-tela="investimento"] h2 { justify-self: center; }
+.tela[data-tela="investimento"] h3 { font-size: 21px; letter-spacing: -0.4px; }
 /* perguntas padronizadas: título ancorado, opções sempre no mesmo ponto */
 .tela.pergunta { justify-content: flex-start; padding-top: clamp(40px, 10dvh, 96px); gap: 12px; }
 .tela.pergunta h2 { min-height: 66px; display: grid; place-items: end start; width: 100%; }
