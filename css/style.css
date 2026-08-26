@@ -317,13 +317,13 @@ button { font-family: inherit; cursor: pointer; }
 }
 .glow-wrap.travado { background: #E3E8E6; }
 .glow-wrap.travado .glow { display: none; }
-.glow-wrap.travado button { background: #C7CFCC; color: #4A5350; }
+.glow-wrap.travado #btn-continuar, .glow-wrap.travado #btn-liberar { background: #C7CFCC; color: #4A5350; box-shadow: none; }
 #btn-continuar, #btn-liberar {
   position: relative; z-index: 1; width: 100%;
   font-weight: 700; font-size: 15.5px; color: #FFFFFF; background: var(--preto);
   border: none; border-radius: 14px; padding: 15px 20px;
 }
-.glow-wrap.travado button { cursor: default; }
+.glow-wrap.travado #btn-continuar, .glow-wrap.travado #btn-liberar { cursor: default; }
 .linha-input { display: flex; gap: 8px; }
 #input-texto {
   flex: 1; font-family: inherit; font-size: 15px; font-weight: 500; color: var(--preto);
