@@ -95,6 +95,16 @@ button { font-family: inherit; cursor: pointer; }
 .tela[data-tela="prova"] h2, .tela[data-tela="investimento"] h2 { min-height: 0; display: block; }
 .tela.com-rodape { bottom: var(--rodape-h); }
 .tela.compacta { gap: 8px; }
+/* encaixe automático: 1º aperta espaços, depois o JS escala se ainda estourar */
+.tela.apertada { gap: 8px; padding-top: 14px; padding-bottom: 14px; }
+.tela.pergunta.apertada { padding-top: 24px; }
+.tela.apertada .corpo, .tela.apertada .sub { font-size: 14px; }
+.tela.apertada .card-bullet { padding: 12px 14px; }
+.tela.apertada .insert-icone { width: 56px; height: 56px; }
+.tela.apertada .insert-icone svg { width: 28px; height: 28px; }
+.tela.apertada .check-grande { width: 52px; height: 52px; }
+.tela.apertada .mascote { width: 140px; height: 140px; }
+.tela.apertada .time-card { height: 120px; }
 
 .tela h1 { font-family: var(--titulo); font-weight: 800; font-size: 30px; letter-spacing: -0.5px; line-height: 1.2; }
 .tela h1 em, .tela h2 em { font-style: normal; color: var(--verde); }
@@ -169,6 +179,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .print-card img, .crm-card img, .time-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 .selo { width: 130px; height: 130px; border-radius: 100px; object-fit: cover; }
+.time-card { height: 150px; flex-shrink: 0; }
+.time-card img { object-position: center 20%; }
 
 /* stats / autoridade */
 .stats { display: flex; gap: 8px; width: 100%; }

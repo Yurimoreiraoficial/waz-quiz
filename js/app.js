@@ -313,6 +313,26 @@
     if (nome === 'resultado') montarResultado();
     if (nome === 'agendar') montarCal();
     if (nome === 'pos') montarPos();
+
+    encaixar(tela);
+    timers.push(setTimeout(function () { encaixar(tela); }, 350));
+  }
+
+  /* ---------- encaixe: comprime a tela quando o conteúdo estoura a altura ---------- */
+  function encaixar(tela) {
+    if (!tela || !tela.classList.contains('ativa')) return;
+    tela.style.transform = ''; tela.style.transformOrigin = ''; tela.style.width = '';
+    tela.classList.remove('apertada');
+    var jc = tela.style.justifyContent;
+    tela.style.justifyContent = 'flex-start';
+    var disp = tela.clientHeight;
+    if (!disp || tela.scrollHeight <= disp + 1) { tela.style.justifyContent = jc || ''; return; }
+    tela.classList.add('apertada');
+    if (tela.scrollHeight <= disp + 1) { tela.style.justifyContent = jc || ''; return; }
+    var fator = Math.max(0.72, disp / tela.scrollHeight);
+    tela.style.width = (100 / fator) + '%';
+    tela.style.transformOrigin = '0 0';
+    tela.style.transform = 'scale(' + fator + ')';
   }
 
   /* ---------- análise ---------- */
@@ -540,6 +560,9 @@
   function ajustarLargura() {
     var w = (window.visualViewport && window.visualViewport.width) || window.innerWidth;
     document.documentElement.style.setProperty('--vwreal', Math.round(w) + 'px');
+    var ae = document.activeElement;
+    var digitando = ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA');
+    if (!digitando) encaixar(document.querySelector('.tela.ativa'));
   }
   ajustarLargura();
   window.addEventListener('resize', ajustarLargura);
