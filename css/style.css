@@ -84,13 +84,18 @@ button { font-family: inherit; cursor: pointer; }
 .tela.ativa { display: flex; }
 /* padrão: conteúdo alinhado à esquerda (exceto tela inicial) */
 .tela { text-align: left; align-items: flex-start; }
-.tela[data-tela="hero"], .tela[data-tela="garantia"], .tela[data-tela="autoridade"], .tela[data-tela="investimento"], .tela[data-tela="analise"], .tela[data-tela="crm"], .tela[data-tela="prova"] { text-align: center; align-items: center; }
+.tela[data-tela="hero"], .tela[data-tela="garantia"], .tela[data-tela="autoridade"], .tela[data-tela="investimento"], .tela[data-tela="analise"], .tela[data-tela="crm"], .tela[data-tela="prova"], .tela[data-tela="setedias"] { text-align: center; align-items: center; }
 .tela[data-tela="autoridade"] .midia { justify-content: center; }
 .tela[data-tela="crm"] .corpo { font-size: 14px; white-space: nowrap; }
 @media (max-width: 359px) { .tela[data-tela="crm"] .corpo { white-space: normal; } }
 .tela[data-tela="autoridade"] .stat { text-align: center; }
 .tela[data-tela="investimento"] h2 { justify-self: center; }
-.tela[data-tela="investimento"] h3 { font-size: 21px; letter-spacing: -0.4px; }
+/* hierarquia: o preço é contexto, a pergunta é o foco */
+.tela[data-tela="investimento"] h2 {
+  font-family: var(--fonte); font-size: 15px; font-weight: 600;
+  letter-spacing: 0; line-height: 1.5; color: var(--cinza); text-wrap: balance;
+}
+.tela[data-tela="investimento"] h3 { font-size: 24px; letter-spacing: -0.5px; line-height: 1.22; margin-top: 8px; }
 /* perguntas padronizadas: título ancorado, opções sempre no mesmo ponto */
 .tela.pergunta { justify-content: flex-start; padding-top: clamp(40px, 10dvh, 96px); gap: 12px; }
 .tela.pergunta h2 { min-height: 66px; display: grid; place-items: end start; width: 100%; }
@@ -240,6 +245,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .tela[data-tela="resultado"] > .corpo, #resultado-nota { text-align: center; align-self: center; }
+.tela[data-tela="setedias"] .fechamento {
+  text-align: center; align-self: center; width: 100%;
+  background: var(--verde-fundo); border: 1px solid var(--verde-claro);
+  border-radius: 12px; padding: 12px 14px; color: #14532D; font-weight: 600;
+}
 
 /* formulário */
 .campo { width: 100%; text-align: left; }
