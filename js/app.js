@@ -225,15 +225,22 @@
     if (!tela.classList.contains('revelacao') || direcao < 0) return 0;
     var alvos = filhos.slice(2);
     if (!alvos.length) return 0;
+    // calcula a cadência pela leitura e normaliza para no máx. 6s no total
+    var TOTAL_MAX = 6;
+    var tempos = [];
     var t = 0;
     alvos.forEach(function (el, i) {
       t = i === 0 ? 0.9 : t + leitura(alvos[i - 1]);
+      tempos.push(t);
+    });
+    var escala = (t + 0.8) > TOTAL_MAX ? (TOTAL_MAX - 0.8) / t : 1;
+    alvos.forEach(function (el, i) {
       el.classList.add('rev-oculto');
       (function (alvo, quando) {
         timers.push(setTimeout(function () { alvo.classList.add('rev-entra'); }, quando * 1000));
-      })(el, t);
+      })(el, tempos[i] * escala);
     });
-    return t + 0.8; // último bloco visível + fade
+    return Math.min(t + 0.8, TOTAL_MAX); // último bloco visível + fade
   }
 
   /* ---------- navegação ---------- */
