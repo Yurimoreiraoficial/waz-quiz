@@ -113,6 +113,7 @@ button { font-family: inherit; cursor: pointer; }
 .pill { background: var(--verde-claro); color: #14532D; font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 100px; }
 .mascote { width: 180px; height: 180px; border-radius: 24px; object-fit: cover; }
 .sub, .corpo { font-size: 15px; line-height: 1.55; color: var(--cinza); }
+.corpo strong { color: var(--preto); font-weight: 700; }
 .sub-hero { font-size: 15px; line-height: 1.5; }
 .sub-pergunta { font-size: 13.5px; line-height: 1.5; color: var(--cinza); margin-top: -4px; }
 .fechamento { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--preto); }
