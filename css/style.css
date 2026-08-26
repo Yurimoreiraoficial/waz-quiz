@@ -123,7 +123,7 @@ button { font-family: inherit; cursor: pointer; }
 .fechamento { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--preto); }
 .destaque-verde { font-family: var(--titulo); font-weight: 800; font-size: 30px; letter-spacing: -0.5px; color: var(--verde); line-height: 1.15; }
 .pergunta-nome { font-family: var(--titulo); font-weight: 800; font-size: 19px; color: var(--preto); }
-.pergunta-destaque { font-family: var(--titulo); font-weight: 800; font-size: 23px; letter-spacing: -0.4px; line-height: 1.25; color: var(--preto); }
+.pergunta-destaque { font-family: var(--titulo); font-weight: 800; font-size: 19px; letter-spacing: -0.4px; line-height: 1.25; color: var(--preto); white-space: nowrap; }
 
 /* opções */
 .opcao {
