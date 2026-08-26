@@ -94,6 +94,8 @@ button { font-family: inherit; cursor: pointer; }
 /* perguntas padronizadas: título ancorado, opções sempre no mesmo ponto */
 .tela.pergunta { justify-content: flex-start; padding-top: clamp(40px, 10dvh, 96px); gap: 12px; }
 .tela.pergunta h2 { min-height: 66px; display: grid; place-items: end start; width: 100%; }
+.tela.pergunta .pill { margin-bottom: -2px; }
+.tela.pergunta .pill + h2 { min-height: 0; display: block; }
 .tela.pergunta .sub-pergunta { margin-top: -4px; margin-bottom: 2px; }
 .tela[data-tela="prova"], .tela[data-tela="investimento"] { justify-content: center; padding-top: 20px; }
 .tela[data-tela="prova"] h2, .tela[data-tela="investimento"] h2 { min-height: 0; display: block; }
