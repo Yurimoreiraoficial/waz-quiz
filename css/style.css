@@ -275,7 +275,7 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--verde-fundo); border: 1px solid var(--verde-claro);
   border-radius: 100px; padding: 8px 16px;
 }
-#insta-embed { width: 100%; max-width: 330px; height: 300px; border: 1px solid var(--borda-suave); border-radius: 14px; background: #FFFFFF; flex-shrink: 1; min-height: 160px; }
+#insta-embed { width: 100%; max-width: 300px; height: 185px; border: 1px solid var(--borda-suave); border-radius: 14px; background: #FFFFFF; flex-shrink: 0; }
 .btn-insta {
   display: block; width: 100%; max-width: 330px; text-decoration: none; text-align: center;
   font-weight: 700; font-size: 15px; color: #FFFFFF; background: var(--verde);
