@@ -322,17 +322,25 @@
   function encaixar(tela) {
     if (!tela || !tela.classList.contains('ativa')) return;
     tela.style.transform = ''; tela.style.transformOrigin = ''; tela.style.width = '';
+    tela.style.height = ''; tela.style.bottom = '';
     tela.classList.remove('apertada');
-    var jc = tela.style.justifyContent;
     tela.style.justifyContent = 'flex-start';
     var disp = tela.clientHeight;
-    if (!disp || tela.scrollHeight <= disp + 1) { tela.style.justifyContent = jc || ''; return; }
+    if (!disp || tela.scrollHeight <= disp + 1) { tela.style.justifyContent = ''; return; }
     tela.classList.add('apertada');
-    if (tela.scrollHeight <= disp + 1) { tela.style.justifyContent = jc || ''; return; }
-    var fator = Math.max(0.72, disp / tela.scrollHeight);
-    tela.style.width = (100 / fator) + '%';
+    if (tela.scrollHeight <= disp + 1) { tela.style.justifyContent = ''; return; }
+    // solta a altura (o clip fica do tamanho do conteúdo) e escala para caber;
+    // alargar muda a quebra de linhas, então re-mede até convergir
+    tela.style.bottom = 'auto';
+    tela.style.height = 'auto';
     tela.style.transformOrigin = '0 0';
-    tela.style.transform = 'scale(' + fator + ')';
+    var fator = 1;
+    for (var i = 0; i < 4; i++) {
+      fator = Math.max(0.7, disp / tela.scrollHeight);
+      tela.style.width = (100 / fator) + '%';
+      tela.style.transform = 'scale(' + fator + ')';
+      if (tela.scrollHeight * fator <= disp + 1) break;
+    }
   }
 
   /* ---------- análise ---------- */
