@@ -83,7 +83,10 @@ button { font-family: inherit; cursor: pointer; }
 .tela.ativa { display: flex; }
 /* padrão: conteúdo alinhado à esquerda (exceto tela inicial) */
 .tela { text-align: left; align-items: flex-start; }
-.tela[data-tela="hero"] { text-align: center; align-items: center; }
+.tela[data-tela="hero"], .tela[data-tela="garantia"], .tela[data-tela="autoridade"], .tela[data-tela="investimento"] { text-align: center; align-items: center; }
+.tela[data-tela="autoridade"] .midia { justify-content: center; }
+.tela[data-tela="autoridade"] .stat { text-align: center; }
+.tela[data-tela="investimento"] h2 { justify-self: center; }
 /* perguntas padronizadas: título ancorado, opções sempre no mesmo ponto */
 .tela.pergunta { justify-content: flex-start; padding-top: clamp(40px, 10dvh, 96px); gap: 12px; }
 .tela.pergunta h2 { min-height: 66px; display: grid; place-items: end start; width: 100%; }
