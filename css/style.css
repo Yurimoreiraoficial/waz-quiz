@@ -233,8 +233,22 @@ button { font-family: inherit; cursor: pointer; }
 .campo.invalido .erro, #rodape-input.invalido .erro { display: block; }
 
 /* resultado — celebração */
-.check-grande { width: 56px; height: 56px; position: relative; border-radius: 100px; }
-.check-grande svg { width: 100%; height: 100%; }
+.tela[data-tela="resultado"] { background: radial-gradient(circle at 50% -10%, #DCFCE7 0%, #FFFFFF 55%); }
+.check-grande { width: 62px; height: 62px; position: relative; border-radius: 100px; background: var(--verde); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px -8px rgba(22,163,74,0.55); }
+.check-grande svg { width: 60%; height: 60%; }
+.check-grande svg circle { fill: transparent; }
+.check-grande svg path { stroke: #FFFFFF; stroke-width: 2.4; }
+.tela[data-tela="resultado"] h2 em { color: var(--verde); font-style: normal; }
+.tela[data-tela="resultado"] .card-bullet { border-left: 4px solid var(--verde); }
+.tela[data-tela="resultado"] .card-bullet .check {
+  width: 24px; height: 24px; border-radius: 100px; background: var(--verde-claro);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 12.5 L10.5 16 L17 8.5' stroke='%2316A34A' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 15px; background-position: center; background-repeat: no-repeat;
+}
+#resultado-nota {
+  width: 100%; background: var(--verde-fundo); border: 1px solid var(--verde-claro);
+  border-radius: 12px; padding: 12px 14px; color: #14532D; font-weight: 600;
+}
 .tela[data-tela="resultado"].ativa .check-grande { animation: pop 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) backwards; }
 .tela[data-tela="resultado"].ativa .check-grande::after {
   content: ""; position: absolute; inset: 0; border-radius: 100px;
@@ -249,16 +263,7 @@ button { font-family: inherit; cursor: pointer; }
 .tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(2) { animation: entra 0.5s 0.75s backwards; }
 .tela[data-tela="resultado"].ativa .card-bullet:nth-of-type(3) { animation: entra 0.5s 1.0s backwards; }
 .tela[data-tela="resultado"].ativa #resultado-nota { animation: entra 0.5s 1.25s backwards; }
-.confete {
-  position: absolute; top: -14px; width: 8px; height: 13px; border-radius: 2px;
-  opacity: 0; pointer-events: none; z-index: 5;
-  animation: cair var(--dur, 2s) ease-in var(--delay, 0s) forwards;
-}
-@keyframes cair {
-  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
-  85% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(72vh) rotate(560deg); }
-}
+
 
 /* agendar */
 .agendar-tela { justify-content: flex-start; gap: 8px; padding-top: 12px; }
