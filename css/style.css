@@ -255,8 +255,9 @@ button { font-family: inherit; cursor: pointer; }
   background: conic-gradient(from 0deg at 50% 50%, rgba(34,197,94,0) 0deg, rgba(34,197,94,0) 38deg, rgba(34,197,94,0.95) 50deg, rgba(34,197,94,0) 62deg, rgba(34,197,94,0) 360deg);
   animation: gira 3s linear infinite;
 }
-.glow-wrap.travado { opacity: 0.55; }
+.glow-wrap.travado { background: #E3E8E6; }
 .glow-wrap.travado .glow { display: none; }
+.glow-wrap.travado button { background: #C7CFCC; color: #4A5350; }
 #btn-continuar, #btn-liberar {
   position: relative; z-index: 1; width: 100%;
   font-weight: 700; font-size: 15.5px; color: #FFFFFF; background: var(--preto);
