@@ -525,6 +525,16 @@
     if (ifr.src === 'about:blank' || !ifr.src) ifr.src = ifr.dataset.src;
   }
 
+  /* ---------- trava de arrasto (iOS/Android): página imóvel ---------- */
+  document.addEventListener('touchmove', function (e) {
+    var t = e.target;
+    if (t && t.closest && t.closest('#cal-container, #insta-embed, input, textarea')) return;
+    e.preventDefault();
+  }, { passive: false });
+  window.addEventListener('scroll', function () {
+    if (window.scrollX || window.scrollY) window.scrollTo(0, 0);
+  }, { passive: true });
+
   /* ---------- início ---------- */
   if (agendado && step < POS && step > IDX_INVESTIMENTO) step = POS;
   iniciarSessao();

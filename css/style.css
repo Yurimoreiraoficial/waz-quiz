@@ -17,7 +17,11 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { overflow: hidden; overscroll-behavior: none; height: 100%; }
+html, body { overflow: hidden; overscroll-behavior: none; height: 100%; touch-action: none; }
+.tela { touch-action: none; }
+button, .opcao { touch-action: manipulation; }
+#cal-container, #insta-embed { touch-action: pan-y; }
+input { touch-action: auto; }
 body {
   font-family: var(--fonte);
   background: #FFFFFF;
