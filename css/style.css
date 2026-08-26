@@ -66,6 +66,7 @@ button { font-family: inherit; cursor: pointer; }
   width: var(--vwreal, 100%);
   background: #FFFFFF;
 }
+@media (min-width: 561px) { #funil { left: 50%; right: auto; width: 430px; } }
 .tela {
   position: absolute;
   top: var(--topo-h); left: 0; right: auto; bottom: 0;
@@ -340,6 +341,9 @@ button { font-family: inherit; cursor: pointer; }
   border: none; border-radius: 12px; padding: 0 20px; flex-shrink: 0;
 }
 .nota-seguranca { font-size: 10.5px; color: var(--cinza-claro); text-align: center; margin-top: 6px; }
+
+.tela[data-tela="agendar"].sem-cabecalho #agendar-titulo,
+.tela[data-tela="agendar"].sem-cabecalho #agendar-sub { display: none; }
 
 /* revelação progressiva */
 .revelacao .rev-oculto { opacity: 0; transform: translateY(12px); }

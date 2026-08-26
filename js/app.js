@@ -551,6 +551,24 @@
       }
     });
     w.Cal.ns[CAL_NS]('ui', { hideEventTypeDetails: true, styles: { branding: { brandColor: '#16A34A' } } });
+    // some com a headline quando o lead escolhe o horário (form de confirmação do Cal)
+    function cabecalhoAgendar(mostrar) {
+      var t = telas.agendar;
+      if (!t) return;
+      t.classList.toggle('sem-cabecalho', !mostrar);
+      encaixar(t);
+    }
+    // o form de confirmação do Cal é sempre bem mais baixo (~400px) que o calendário (~730px):
+    // altura interna abaixo do limiar = lead está no form -> esconde a headline
+    w.Cal.ns[CAL_NS]('on', {
+      action: '__dimensionChanged',
+      callback: function (e) {
+        try {
+          var h = e.detail && e.detail.data && e.detail.data.iframeHeight;
+          if (typeof h === 'number' && h > 0) cabecalhoAgendar(h >= 560);
+        } catch (x) {}
+      }
+    });
     w.Cal.ns[CAL_NS]('on', {
       action: 'bookingSuccessful',
       callback: function (ev) {
