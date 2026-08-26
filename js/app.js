@@ -223,7 +223,8 @@
     var filhos = $$(':scope > *', tela).filter(function (el) { return el.offsetHeight > 0 || el.tagName !== 'STYLE'; });
     filhos.forEach(function (el) { el.classList.remove('rev-oculto', 'rev-entra'); });
     if (!tela.classList.contains('revelacao') || direcao < 0) return 0;
-    var alvos = filhos.slice(2);
+    var imediatos = filhos[0] && filhos[0].classList && filhos[0].classList.contains('insert-icone') ? 3 : 2;
+    var alvos = filhos.slice(imediatos);
     if (!alvos.length) return 0;
     // calcula a cadência pela leitura e normaliza para no máx. 6s no total
     var TOTAL_MAX = 6;

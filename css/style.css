@@ -179,6 +179,15 @@ button { font-family: inherit; cursor: pointer; }
 .plano-nota { font-size: 12.5px; font-style: italic; font-weight: 600; color: var(--verde); }
 .plano-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; }
 
+/* ícones dos inserts */
+.insert-icone {
+  width: 72px; height: 72px; border-radius: 100px;
+  background: var(--verde-claro);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.insert-icone svg { width: 34px; height: 34px; }
+
 /* análise */
 .tela.centro { justify-content: center; }
 .spinner {
