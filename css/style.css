@@ -17,6 +17,8 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+h1, h2, h3 { text-wrap: balance; }
+p, .sub, .corpo, .fechamento, .card-bullet p { text-wrap: pretty; }
 html, body { overflow: hidden; overscroll-behavior: none; height: 100%; touch-action: none; }
 .tela { touch-action: none; }
 button, .opcao { touch-action: manipulation; }
@@ -93,10 +95,10 @@ button { font-family: inherit; cursor: pointer; }
 .tela h3 { font-family: var(--titulo); font-weight: 800; font-size: 17px; letter-spacing: -0.3px; line-height: 1.25; margin-top: 4px; }
 .pill { background: var(--verde-claro); color: #14532D; font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 100px; }
 .mascote { width: 180px; height: 180px; border-radius: 24px; object-fit: cover; }
-.sub, .corpo { font-size: 13px; line-height: 1.55; color: var(--cinza); }
+.sub, .corpo { font-size: 15px; line-height: 1.55; color: var(--cinza); }
 .sub-hero { font-size: 15px; line-height: 1.5; }
-.sub-pergunta { font-size: 12.5px; line-height: 1.5; color: var(--cinza); margin-top: -4px; }
-.fechamento { font-size: 13px; font-weight: 600; line-height: 1.55; color: var(--preto); }
+.sub-pergunta { font-size: 13.5px; line-height: 1.5; color: var(--cinza); margin-top: -4px; }
+.fechamento { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--preto); }
 .destaque-verde { font-family: var(--titulo); font-weight: 800; font-size: 30px; letter-spacing: -0.5px; color: var(--verde); line-height: 1.15; }
 .pergunta-nome { font-family: var(--titulo); font-weight: 800; font-size: 19px; color: var(--preto); }
 
@@ -138,7 +140,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 12px 14px;
   text-align: left;
 }
-.card-bullet p { font-size: 13px; font-weight: 500; line-height: 1.45; color: var(--preto); flex: 1; }
+.card-bullet p { font-size: 15px; font-weight: 500; line-height: 1.45; color: var(--preto); flex: 1; }
 .check {
   flex-shrink: 0; width: 17px; height: 17px; margin-top: 1px;
   background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 12.5 L9.5 18 L20 6.5' stroke='%2316A34A' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
