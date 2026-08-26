@@ -535,6 +535,16 @@
     if (ifr.src === 'about:blank' || !ifr.src) ifr.src = ifr.dataset.src;
   }
 
+  /* ---------- largura real do aparelho (Safari renderiza layout mais largo) ---------- */
+  function ajustarLargura() {
+    var w = (window.visualViewport && window.visualViewport.width) || window.innerWidth;
+    document.documentElement.style.setProperty('--vwreal', Math.round(w) + 'px');
+  }
+  ajustarLargura();
+  window.addEventListener('resize', ajustarLargura);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', ajustarLargura);
+  setTimeout(ajustarLargura, 300);
+
   /* ---------- trava de arrasto (iOS/Android): página imóvel ---------- */
   document.addEventListener('touchmove', function (e) {
     var t = e.target;
