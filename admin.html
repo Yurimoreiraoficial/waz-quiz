@@ -50,6 +50,14 @@ td { padding:8px; border-bottom:1px solid #F0F3F1; vertical-align:top; }
 #status { font-size:13px; color:var(--cinza); }
 canvas { max-height:260px; }
 h3 { font-size:15px; margin-bottom:10px; }
+.tempo-card { display:flex; flex-direction:column; }
+#tempo-funil { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; text-align:center; }
+.tempo-grande { font-family:'Fustat'; font-size:52px; font-weight:800; letter-spacing:-1px; color:var(--verde); line-height:1.1; }
+.tempo-legenda { font-size:13px; color:var(--cinza); }
+.tempo-detalhe { font-size:12px; color:var(--cinza); margin-top:8px; }
+.tempo-detalhe b { color:var(--preto); }
+#respostas > div { background:var(--fundo); border:1px solid var(--borda); border-radius:12px; padding:14px 16px; }
+#respostas h3 { margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid var(--borda); }
 </style>
 </head>
 <body>
@@ -87,7 +95,7 @@ h3 { font-size:15px; margin-bottom:10px; }
 
   <div class="grid2">
     <div class="card"><h3>Evolução diária</h3><canvas id="grafico-dias"></canvas></div>
-    <div class="card"><h3>Tempo médio por tela (s)</h3><div id="tempos"></div></div>
+    <div class="card tempo-card"><h3>Tempo no funil</h3><div id="tempo-funil"></div></div>
   </div>
 
   <div class="card">
@@ -108,7 +116,7 @@ h3 { font-size:15px; margin-bottom:10px; }
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-<script src="js/admin.js"
+<script src="js/admin.js?v=2"
   data-supabase-url="https://yiccjupbhruomiymzyiw.supabase.co"
   data-supabase-anon="sb_publishable_HIEB1zkCuKCM0cBIkjVDBw__gZt1yHv"></script>
 </body>

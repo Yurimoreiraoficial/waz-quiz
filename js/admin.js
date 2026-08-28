@@ -147,31 +147,33 @@
         (drop > 0 ? ' <em>-' + drop + '</em>' : '') + '</div></div>';
     }).join('');
 
-    // tempos por tela
-    var somas = {}, contagens = {};
+    // tempo de duração do lead no funil (primeiro ao último evento de cada sessão)
     var porSessao = {};
     evs.forEach(function (e) {
-      if (e.tipo !== 'tela' && e.tipo !== 'inicio') return;
       var k = e.sessao_id || e.lead_id; if (!k) return;
-      (porSessao[k] = porSessao[k] || []).push(e);
+      (porSessao[k] = porSessao[k] || []).push(new Date(e.criado_em).getTime());
     });
+    var duracoes = [];
     Object.keys(porSessao).forEach(function (k) {
-      var lista = porSessao[k];
-      for (var i = 0; i < lista.length - 1; i++) {
-        var dt = (new Date(lista[i + 1].criado_em) - new Date(lista[i].criado_em)) / 1000;
-        if (dt > 0 && dt < 300) {
-          var t = lista[i].tela;
-          somas[t] = (somas[t] || 0) + dt;
-          contagens[t] = (contagens[t] || 0) + 1;
-        }
-      }
+      var ts = porSessao[k];
+      var d = (Math.max.apply(null, ts) - Math.min.apply(null, ts)) / 1000;
+      if (d >= 5 && d <= 1800) duracoes.push(d);
     });
-    $('#tempos').innerHTML = SEQ.filter(function (t) { return contagens[t]; }).map(function (t) {
-      var media = somas[t] / contagens[t];
-      var w = Math.min(100, Math.round(media * 2.2));
-      return '<div class="dist"><div class="rotulo"><span>' + (NOME_TELA[t] || t) + '</span><b>' + media.toFixed(1) + 's</b></div>' +
-        '<div class="barra"><i style="width:' + w + '%"></i></div></div>';
-    }).join('') || '<span style="font-size:13px;color:#798282">Sem dados ainda.</span>';
+    function fmtDur(s) {
+      s = Math.round(s);
+      return s >= 60 ? Math.floor(s / 60) + 'min ' + (s % 60) + 's' : s + 's';
+    }
+    if (duracoes.length) {
+      duracoes.sort(function (a, b) { return a - b; });
+      var mediaDur = duracoes.reduce(function (s, d) { return s + d; }, 0) / duracoes.length;
+      var medianaDur = duracoes[Math.floor(duracoes.length / 2)];
+      $('#tempo-funil').innerHTML =
+        '<div class="tempo-grande">' + fmtDur(mediaDur) + '</div>' +
+        '<div class="tempo-legenda">tempo médio do lead dentro do funil</div>' +
+        '<div class="tempo-detalhe">Mediana: <b>' + fmtDur(medianaDur) + '</b> · Mais rápido: <b>' + fmtDur(duracoes[0]) + '</b> · Mais lento: <b>' + fmtDur(duracoes[duracoes.length - 1]) + '</b> · ' + duracoes.length + ' sessões</div>';
+    } else {
+      $('#tempo-funil').innerHTML = '<span style="font-size:13px;color:#798282">Sem dados ainda.</span>';
+    }
 
     // distribuição de respostas
     var dist = {};
